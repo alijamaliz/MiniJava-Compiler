@@ -39,7 +39,7 @@ public class ParseTable {
             Rows[i] = Rows[i].substring(1,Rows[i].length()-1);
             cols = Rows[i].split("\",\"");
             actionTable.add(new HashMap<Token, Action>());
-            gotoTable.add(new HashMap<>());
+            gotoTable.add(new HashMap<NonTerminal, Integer>());
             for (int j = 1; j <cols.length ; j++) {
                 if(!cols[j].equals(""))
                 {

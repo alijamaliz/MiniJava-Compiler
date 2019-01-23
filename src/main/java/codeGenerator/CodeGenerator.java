@@ -12,8 +12,8 @@ import java.util.Stack;
 public class CodeGenerator {
     private Memory memory = new Memory();
     private Stack<Address> ss = new Stack<Address>();
-    private Stack<String> symbolStack = new Stack<>();
-    private Stack<String> callStack = new Stack<>();
+    private Stack<String> symbolStack = new Stack<String>();
+    private Stack<String> callStack = new Stack<String>();
     private SymbolTable symbolTable;
 
     public CodeGenerator() {

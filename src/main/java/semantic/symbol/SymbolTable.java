@@ -19,8 +19,8 @@ public class SymbolTable {
 
     public SymbolTable(Memory memory) {
         mem = memory;
-        klasses = new HashMap<>();
-        keyWords = new HashMap<>();
+        klasses = new HashMap<String, Klass>();
+        keyWords = new HashMap<String, Address>();
         keyWords.put("true", new Address(1, varType.Bool, TypeAddress.Imidiate));
         keyWords.put("false", new Address(0, varType.Bool, TypeAddress.Imidiate));
     }
@@ -129,8 +129,8 @@ public class SymbolTable {
         public Klass superClass;
 
         public Klass() {
-            Fields = new HashMap<>();
-            Methodes = new HashMap<>();
+            Fields = new HashMap<String, Symbol>();
+            Methodes = new HashMap<String, Method>();
         }
 
         public Symbol getField(String fieldName) {
@@ -156,11 +156,11 @@ public class SymbolTable {
         public Method(int codeAddress, SymbolType returnType) {
             this.codeAddress = codeAddress;
             this.returnType = returnType;
-            this.orderdParameters = new ArrayList<>();
+            this.orderdParameters = new ArrayList<String>();
             this.returnAddress = mem.getDateAddress();
             this.callerAddress = mem.getDateAddress();
-            this.parameters = new HashMap<>();
-            this.localVariable = new HashMap<>();
+            this.parameters = new HashMap<String, Symbol>();
+            this.localVariable = new HashMap<String, Symbol>();
         }
 
         public Symbol getVariable(String variableName) {
